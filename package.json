@@ -16,8 +16,8 @@
     "demo.serve-universal": "run-s build:dynamic serve:dynamic",
     "demo.deploy": "run-s demo.build demo.deploy-gh-pages",
     "link": "npm link ./dist && npm link ngx-bootstrap",
-    "lint-pretty": "prettier --config .prettierrc --write -l  \"{demo/src,src}/**/*.ts\"",
     "lint-src": "",
+    "lint-pretty": "prettier --config .prettierrc --write -l  \"{demo/src,src}/**/*.ts\"",
     "lint": "exit 0",
     "disable-lint": "tslint \"**/*.ts\" -c tslint.json --fix --type-check -t prose -e \"node_modules/**\" -e \"dist/**\" -e \"temp/**\" -e \"scripts/docs/**\"",
     "flow.changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
@@ -36,8 +36,6 @@
     "test-coverage": "ng test --code-coverage",
     "version": "node scripts/version && npm run version.changelog",
     "version.changelog": "run-s changelog git-add git-commit-changelog",
-    "git-add": "git add -A",
-    "git-commit-changelog": "git commit -am \"chore(changelog): update [skip ci] \"",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -r 2",
     "cy:open": "cypress open",
     "cy:run:smoke": "cypress run --config integrationFolder=cypress/integration",
@@ -49,11 +47,6 @@
     "build:client-and-server-bundles": "ng build --prod && ng run ngx-bootstrap:server",
     "webpack:server": "webpack --config ./scripts/universal/webpack.server.config.js --progress --colors",
     "configure-heroku": "node scripts/universal/configure-heroku.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run lint-src"
-    }
   },
   "main": "bundles/ngx-bootstrap.umd.js",
   "module": "esm5/ngx-bootstrap.js",
@@ -68,13 +61,6 @@
   ],
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/valor-software/ngx-bootstrap.git"
-  },
-  "bugs": {
-    "url": "https://github.com/valor-software/ngx-bootstrap/issues"
-  },
   "homepage": "https://github.com/valor-software/ngx-bootstrap#readme",
   "peerDependencies": {
     "@angular/common": ">=6.0.0",
