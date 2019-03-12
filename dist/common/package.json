@@ -1,0 +1,22 @@
+{
+  "name": "ngx-bootstrap",
+  "es2015": "fesm2015/ngx-bootstrap.js",
+  "peerDependencies": {
+    "@angular/core": "*",
+    "@angular/common": "*"
+  },
+  "private": true,
+  "version": "3.3.0",
+  "main": "bundles/ngx-bootstrap.umd.js",
+  "module": "fesm5/ngx-bootstrap.js",
+  "esm5": "esm5/ngx-bootstrap.js",
+  "esm2015": "esm2015/ngx-bootstrap.js",
+  "fesm5": "fesm5/ngx-bootstrap.js",
+  "fesm2015": "fesm2015/ngx-bootstrap.js",
+  "typings": "ngx-bootstrap.d.ts",
+  "metadata": "ngx-bootstrap.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

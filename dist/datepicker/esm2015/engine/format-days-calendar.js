@@ -1,0 +1,50 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+import { formatDate, getLocale } from 'ngx-bootstrap/chronos';
+/**
+ * @param {?} daysCalendar
+ * @param {?} formatOptions
+ * @param {?} monthIndex
+ * @return {?}
+ */
+export function formatDaysCalendar(daysCalendar, formatOptions, monthIndex) {
+    return {
+        month: daysCalendar.month,
+        monthTitle: formatDate(daysCalendar.month, formatOptions.monthTitle, formatOptions.locale),
+        yearTitle: formatDate(daysCalendar.month, formatOptions.yearTitle, formatOptions.locale),
+        weekNumbers: getWeekNumbers(daysCalendar.daysMatrix, formatOptions.weekNumbers, formatOptions.locale),
+        weekdays: getShiftedWeekdays(formatOptions.locale),
+        weeks: daysCalendar.daysMatrix.map((week, weekIndex) => ({
+            days: week.map((date, dayIndex) => ({
+                date,
+                label: formatDate(date, formatOptions.dayLabel, formatOptions.locale),
+                monthIndex,
+                weekIndex,
+                dayIndex
+            }))
+        }))
+    };
+}
+/**
+ * @param {?} daysMatrix
+ * @param {?} format
+ * @param {?} locale
+ * @return {?}
+ */
+export function getWeekNumbers(daysMatrix, format, locale) {
+    return daysMatrix.map((days) => (days[0] ? formatDate(days[0], format, locale) : ''));
+}
+/**
+ * @param {?} locale
+ * @return {?}
+ */
+export function getShiftedWeekdays(locale) {
+    const /** @type {?} */ _locale = getLocale(locale);
+    const /** @type {?} */ weekdays = /** @type {?} */ (_locale.weekdaysShort());
+    const /** @type {?} */ firstDayOfWeek = _locale.firstDayOfWeek();
+    return [...weekdays.slice(firstDayOfWeek), ...weekdays.slice(0, firstDayOfWeek)];
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZm9ybWF0LWRheXMtY2FsZW5kYXIuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9uZ3gtYm9vdHN0cmFwL2RhdGVwaWNrZXIvIiwic291cmNlcyI6WyJlbmdpbmUvZm9ybWF0LWRheXMtY2FsZW5kYXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUtBLE9BQU8sRUFBRSxVQUFVLEVBQUUsU0FBUyxFQUFFLE1BQU0sdUJBQXVCLENBQUM7Ozs7Ozs7QUFFOUQsTUFBTSw2QkFBNkIsWUFBK0IsRUFDL0IsYUFBc0MsRUFDdEMsVUFBa0I7SUFDbkQsTUFBTSxDQUFDO1FBQ0wsS0FBSyxFQUFFLFlBQVksQ0FBQyxLQUFLO1FBQ3pCLFVBQVUsRUFBRSxVQUFVLENBQ3BCLFlBQVksQ0FBQyxLQUFLLEVBQ2xCLGFBQWEsQ0FBQyxVQUFVLEVBQ3hCLGFBQWEsQ0FBQyxNQUFNLENBQ3JCO1FBQ0QsU0FBUyxFQUFFLFVBQVUsQ0FDbkIsWUFBWSxDQUFDLEtBQUssRUFDbEIsYUFBYSxDQUFDLFNBQVMsRUFDdkIsYUFBYSxDQUFDLE1BQU0sQ0FDckI7UUFDRCxXQUFXLEVBQUUsY0FBYyxDQUN6QixZQUFZLENBQUMsVUFBVSxFQUN2QixhQUFhLENBQUMsV0FBVyxFQUN6QixhQUFhLENBQUMsTUFBTSxDQUNyQjtRQUNELFFBQVEsRUFBRSxrQkFBa0IsQ0FBQyxhQUFhLENBQUMsTUFBTSxDQUFDO1FBQ2xELEtBQUssRUFBRSxZQUFZLENBQUMsVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDLElBQVksRUFBRSxTQUFpQixFQUFFLEVBQUUsQ0FBQyxDQUFDO1lBQ3ZFLElBQUksRUFBRSxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBVSxFQUFFLFFBQWdCLEVBQUUsRUFBRSxDQUFDLENBQUM7Z0JBQ2hELElBQUk7Z0JBQ0osS0FBSyxFQUFFLFVBQVUsQ0FBQyxJQUFJLEVBQUUsYUFBYSxDQUFDLFFBQVEsRUFBRSxhQUFhLENBQUMsTUFBTSxDQUFDO2dCQUNyRSxVQUFVO2dCQUNWLFNBQVM7Z0JBQ1QsUUFBUTthQUNULENBQUMsQ0FBQztTQUNKLENBQUMsQ0FBQztLQUNKLENBQUM7Q0FDSDs7Ozs7OztBQUVELE1BQU0seUJBQXlCLFVBQW9CLEVBQ3BCLE1BQWMsRUFDZCxNQUFjO0lBQzNDLE1BQU0sQ0FBQyxVQUFVLENBQUMsR0FBRyxDQUNuQixDQUFDLElBQVksRUFBRSxFQUFFLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLFVBQVUsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLEVBQUUsTUFBTSxFQUFFLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FDdkUsQ0FBQztDQUNIOzs7OztBQUVELE1BQU0sNkJBQTZCLE1BQWM7SUFDL0MsdUJBQU0sT0FBTyxHQUFHLFNBQVMsQ0FBQyxNQUFNLENBQUMsQ0FBQztJQUNsQyx1QkFBTSxRQUFRLHFCQUFHLE9BQU8sQ0FBQyxhQUFhLEVBQWMsQ0FBQSxDQUFDO0lBQ3JELHVCQUFNLGNBQWMsR0FBRyxPQUFPLENBQUMsY0FBYyxFQUFFLENBQUM7SUFFaEQsTUFBTSxDQUFDLENBQUMsR0FBRyxRQUFRLENBQUMsS0FBSyxDQUFDLGNBQWMsQ0FBQyxFQUFFLEdBQUcsUUFBUSxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQUUsY0FBYyxDQUFDLENBQUMsQ0FBQztDQUNsRiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7XHJcbiAgRGF0ZXBpY2tlckZvcm1hdE9wdGlvbnMsXHJcbiAgRGF5c0NhbGVuZGFyTW9kZWwsXHJcbiAgRGF5c0NhbGVuZGFyVmlld01vZGVsXHJcbn0gZnJvbSAnLi4vbW9kZWxzJztcclxuaW1wb3J0IHsgZm9ybWF0RGF0ZSwgZ2V0TG9jYWxlIH0gZnJvbSAnbmd4LWJvb3RzdHJhcC9jaHJvbm9zJztcclxuXHJcbmV4cG9ydCBmdW5jdGlvbiBmb3JtYXREYXlzQ2FsZW5kYXIoZGF5c0NhbGVuZGFyOiBEYXlzQ2FsZW5kYXJNb2RlbCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb3JtYXRPcHRpb25zOiBEYXRlcGlja2VyRm9ybWF0T3B0aW9ucyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtb250aEluZGV4OiBudW1iZXIpOiBEYXlzQ2FsZW5kYXJWaWV3TW9kZWwge1xyXG4gIHJldHVybiB7XHJcbiAgICBtb250aDogZGF5c0NhbGVuZGFyLm1vbnRoLFxyXG4gICAgbW9udGhUaXRsZTogZm9ybWF0RGF0ZShcclxuICAgICAgZGF5c0NhbGVuZGFyLm1vbnRoLFxyXG4gICAgICBmb3JtYXRPcHRpb25zLm1vbnRoVGl0bGUsXHJcbiAgICAgIGZvcm1hdE9wdGlvbnMubG9jYWxlXHJcbiAgICApLFxyXG4gICAgeWVhclRpdGxlOiBmb3JtYXREYXRlKFxyXG4gICAgICBkYXlzQ2FsZW5kYXIubW9udGgsXHJcbiAgICAgIGZvcm1hdE9wdGlvbnMueWVhclRpdGxlLFxyXG4gICAgICBmb3JtYXRPcHRpb25zLmxvY2FsZVxyXG4gICAgKSxcclxuICAgIHdlZWtOdW1iZXJzOiBnZXRXZWVrTnVtYmVycyhcclxuICAgICAgZGF5c0NhbGVuZGFyLmRheXNNYXRyaXgsXHJcbiAgICAgIGZvcm1hdE9wdGlvbnMud2Vla051bWJlcnMsXHJcbiAgICAgIGZvcm1hdE9wdGlvbnMubG9jYWxlXHJcbiAgICApLFxyXG4gICAgd2Vla2RheXM6IGdldFNoaWZ0ZWRXZWVrZGF5cyhmb3JtYXRPcHRpb25zLmxvY2FsZSksXHJcbiAgICB3ZWVrczogZGF5c0NhbGVuZGFyLmRheXNNYXRyaXgubWFwKCh3ZWVrOiBEYXRlW10sIHdlZWtJbmRleDogbnVtYmVyKSA9PiAoe1xyXG4gICAgICBkYXlzOiB3ZWVrLm1hcCgoZGF0ZTogRGF0ZSwgZGF5SW5kZXg6IG51bWJlcikgPT4gKHtcclxuICAgICAgICBkYXRlLFxyXG4gICAgICAgIGxhYmVsOiBmb3JtYXREYXRlKGRhdGUsIGZvcm1hdE9wdGlvbnMuZGF5TGFiZWwsIGZvcm1hdE9wdGlvbnMubG9jYWxlKSxcclxuICAgICAgICBtb250aEluZGV4LFxyXG4gICAgICAgIHdlZWtJbmRleCxcclxuICAgICAgICBkYXlJbmRleFxyXG4gICAgICB9KSlcclxuICAgIH0pKVxyXG4gIH07XHJcbn1cclxuXHJcbmV4cG9ydCBmdW5jdGlvbiBnZXRXZWVrTnVtYmVycyhkYXlzTWF0cml4OiBEYXRlW11bXSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdDogc3RyaW5nLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbG9jYWxlOiBzdHJpbmcpOiBzdHJpbmdbXSB7XHJcbiAgcmV0dXJuIGRheXNNYXRyaXgubWFwKFxyXG4gICAgKGRheXM6IERhdGVbXSkgPT4gKGRheXNbMF0gPyBmb3JtYXREYXRlKGRheXNbMF0sIGZvcm1hdCwgbG9jYWxlKSA6ICcnKVxyXG4gICk7XHJcbn1cclxuXHJcbmV4cG9ydCBmdW5jdGlvbiBnZXRTaGlmdGVkV2Vla2RheXMobG9jYWxlOiBzdHJpbmcpOiBzdHJpbmdbXSB7XHJcbiAgY29uc3QgX2xvY2FsZSA9IGdldExvY2FsZShsb2NhbGUpO1xyXG4gIGNvbnN0IHdlZWtkYXlzID0gX2xvY2FsZS53ZWVrZGF5c1Nob3J0KCkgYXMgc3RyaW5nW107XHJcbiAgY29uc3QgZmlyc3REYXlPZldlZWsgPSBfbG9jYWxlLmZpcnN0RGF5T2ZXZWVrKCk7XHJcblxyXG4gIHJldHVybiBbLi4ud2Vla2RheXMuc2xpY2UoZmlyc3REYXlPZldlZWspLCAuLi53ZWVrZGF5cy5zbGljZSgwLCBmaXJzdERheU9mV2VlayldO1xyXG59XHJcbiJdfQ==
