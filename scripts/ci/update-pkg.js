@@ -19,20 +19,19 @@ async function updatePkg() {
 
 function getTime() {
   const date = new Date();
-  let month = '' + (date.getMonth() + 1);
-  let day = '' + date.getDate();
-  const year = date.getFullYear();
-  const hour = date.getHours();
-  const minutes = date.getMinutes();
-  const seconds = date.getSeconds();
 
-  if (month.length < 2) {
-    month = '0' + month;
-  }
-
-  if (day.length < 2) {
-    day = '0' + day;
-  }
-
-  return `${year}${month}${day}${hour}${minutes}${seconds}`;
+  return [
+    date.getFullYear(),
+    `${date.getMonth() + 1}`,
+    date.getDate(),
+    date.getHours(),
+    date.getMinutes(),
+    date.getSeconds()
+  ]
+    .map((number) => {
+      return number.length < 2
+        ? `0${number}`
+        : `${number}`;
+    })
+    .join('');
 }
